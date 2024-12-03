@@ -34,9 +34,15 @@ class _MenuPageState extends State<MenuPage> {
         rating: '4.3'),
   ];
 
-  void navigateToFoodDetails(int index){
-    Navigator.push(context, MaterialPageRoute(builder: (context) => FoodDetailsPage(),),);
+  void navigateToFoodDetails(int index) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => FoodDetailsPage(),
+      ),
+    );
   }
+
   //
   @override
   Widget build(BuildContext context) {
@@ -101,16 +107,15 @@ class _MenuPageState extends State<MenuPage> {
             padding: const EdgeInsets.symmetric(horizontal: 25),
             child: TextField(
               decoration: InputDecoration(
-                focusedBorder: OutlineInputBorder(
-                  borderSide: const BorderSide(color: Colors.white),
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                enabledBorder: OutlineInputBorder(
-                  borderSide: const BorderSide(color: Colors.white),
-                  borderRadius: BorderRadius.circular(25),
-                ),
-                hintText: "Search Here.. "
-              ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: const BorderSide(color: Colors.white),
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: const BorderSide(color: Colors.white),
+                    borderRadius: BorderRadius.circular(25),
+                  ),
+                  hintText: "Search Here.. "),
             ),
           ),
           const SizedBox(
@@ -135,7 +140,10 @@ class _MenuPageState extends State<MenuPage> {
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: foodMenu.length,
-              itemBuilder: (context, index) => FoodTile(food: foodMenu[index], onTap: (){},),
+              itemBuilder: (context, index) => FoodTile(
+                food: foodMenu[index],
+                onTap: () => navigateToFoodDetails(index),
+              ),
             ),
           ),
 
@@ -184,7 +192,6 @@ class _MenuPageState extends State<MenuPage> {
                     ),
                   ],
                 ),
-
                 const Icon(
                   Icons.favorite_outline,
                   color: Colors.grey,

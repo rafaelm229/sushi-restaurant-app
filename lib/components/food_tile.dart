@@ -8,12 +8,12 @@ class FoodTile extends StatelessWidget {
   final Food food;
   void Function()? onTap;
 
-  const FoodTile({super.key, required this.food, required this.onTap});
+   FoodTile({super.key, required this.food, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: ,
+      onTap: onTap,
       child: Container(
         decoration: BoxDecoration(
           color: Colors.grey[100],
@@ -35,10 +35,12 @@ class FoodTile extends StatelessWidget {
                 children: [
                   Text('\$' + food.price, style: TextStyle(color: Colors.grey[700], fontWeight: FontWeight.bold),),
 
+                  const SizedBox(height: 20,),
+
                   Row(
                     children: [
                       Icon(Icons.star, color: Colors.yellow[800],),
-                      Text(food.rating,style: TextStyle(color: Colors.grey),),
+                      Text(food.rating,style: const TextStyle(color: Colors.grey),),
                     ],
                   ),
                 ],
